@@ -1,7 +1,8 @@
-package com.company.cmpt276_asn3;
+package com.company.cmpt276_asn3.app;
 
 import android.os.Bundle;
 
+import com.company.cmpt276_asn3.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
