@@ -2,6 +2,7 @@ package com.company.cmpt276_asn3.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 // Holds underlying 2D array representing the playable game field
 public class GameField {
@@ -9,14 +10,16 @@ public class GameField {
     private List<List<Cell>> field = new ArrayList<>();
     private int numRows;
     private int numCols;
+    private int numMines;
 
     // Initialize 2D array here
-    public GameField(int height, int width){
+    public GameField(int height, int width, int numMines){
         this.numRows = height;
         this.numCols = width;
+        this.numMines = numMines;
 
         populateListWithCells();
-        setMines();
+        setMines(this.numMines);
         updateNumMines();
     }
 
@@ -37,15 +40,22 @@ public class GameField {
         }
     }
 
-    private void setMines(){
+    private void setMines(int numMines){
+        Random rand = new Random();
+        int rowIndex;
+        int colIndex;
         // Randomly sets mines in game field
+        for (int i = 0; i < numMines; i++){
+            rowIndex = rand.nextInt(numRows + 1);
+            colIndex = rand.nextInt(numCols + 1);
+
+            getCell(rowIndex, colIndex).setContainsMine(true);
+        }
     }
 
     private void updateNumMines(){
-
         for (int i = 0; i < numRows; i++){
             int rowCount = countNumMinesInRow(i);
-
             for (int j = 0; j < numCols; j++){
                 int colCount = countNumMinesInCol(j);
                 field.get(i).get(j).setNumMines(rowCount + colCount);
