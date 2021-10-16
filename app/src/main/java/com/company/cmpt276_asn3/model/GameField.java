@@ -29,14 +29,13 @@ public class GameField {
 
     private void populateListWithCells(){
         for (int i = 0; i < numRows; i++){
-            List<Cell> row = new ArrayList<>();
+            field.add(new ArrayList<>());
 
-            for (int j = 0; i < numCols; j++){
+            for (int j = 0; j < numCols; j++){
                 // Blank cell has no mine and no count
                 Cell c = new Cell(false, false, 0);
-                row.add(c);
+                field.get(i).add(c);
             }
-            field.add(row);
         }
     }
 
@@ -46,8 +45,8 @@ public class GameField {
         int colIndex;
         // Randomly sets mines in game field
         for (int i = 0; i < numMines; i++){
-            rowIndex = rand.nextInt(numRows + 1);
-            colIndex = rand.nextInt(numCols + 1);
+            rowIndex = rand.nextInt(numRows);
+            colIndex = rand.nextInt(numCols);
 
             getCell(rowIndex, colIndex).setContainsMine(true);
         }
