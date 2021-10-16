@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// Holds underlying 2D array representing the playable game field
+// Holds 2D array of Cell obj in row major order representing the playable game field
 public class GameField {
-    // 2D array of cells in row major order
     private List<List<Cell>> field = new ArrayList<>();
     private int numRows;
     private int numCols;
     private int numMines;
 
-    // Initialize 2D array here
     public GameField(int height, int width, int numMines){
         this.numRows = height;
         this.numCols = width;
@@ -43,12 +41,19 @@ public class GameField {
         Random rand = new Random();
         int rowIndex;
         int colIndex;
-        // Randomly sets mines in game field
         for (int i = 0; i < numMines; i++){
-            rowIndex = rand.nextInt(numRows);
-            colIndex = rand.nextInt(numCols);
+            boolean isMineSet = false;
+            // Loop until a valid cell is set as a mine
+            while (!isMineSet){
+                rowIndex = rand.nextInt(numRows);
+                colIndex = rand.nextInt(numCols);
+                Cell c = getCell(rowIndex, colIndex);
 
-            getCell(rowIndex, colIndex).setContainsMine(true);
+                if (!c.isContainsMine()){
+                    c.setContainsMine(true);
+                    isMineSet = true;
+                }
+            }
         }
     }
 
@@ -62,30 +67,29 @@ public class GameField {
         }
     }
 
-    private int countNumMinesInRow(int index){
+    private int countNumMinesInRow(int rowIndex){
         int count = 0;
-        List<Cell> row = field.get(index);
 
-        // Count all mines that are not revealed
         for (int i = 0; i < numCols; i++){
-            if (row.get(i).isContainsMine() && !row.get(i).isShown()){
+            Cell c = getCell(rowIndex, i);
+            // Count all mines not already revealed
+            if (c.isContainsMine() && !c.isShown()){
                 count++;
             }
         }
         return count;
     }
 
-    private int countNumMinesInCol(int index){
+    private int countNumMinesInCol(int colIndex){
         int count = 0;
 
         for (int i = 0; i < numRows; i++){
-            List<Cell> row = field.get(i);
-
-            if (row.get(index).isContainsMine() && !row.get(index).isShown()){
+            Cell c = getCell(i, colIndex);
+            // Count all mines not already revealed
+            if (c.isContainsMine() && !c.isShown()){
                 count++;
             }
         }
-
         return count;
     }
 }
