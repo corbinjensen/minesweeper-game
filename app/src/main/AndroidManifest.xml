@@ -19,6 +19,7 @@
             android:exported="false"
             android:label="Game"
             android:screenOrientation="landscape"
+            android:theme="@style/Theme.CMPT276_ASN3.NoActionBar"
             />
         <activity
             android:name=".app.SettingsActivity"

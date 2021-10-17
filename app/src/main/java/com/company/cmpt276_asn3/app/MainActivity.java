@@ -35,18 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-
-
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                public void onClick(View view) {
                 Intent intent2 = new Intent(MainActivity.this,GamePlayActivity.class);
                 startActivity(intent2);
             }
         });
+
     }
 
     @Override
