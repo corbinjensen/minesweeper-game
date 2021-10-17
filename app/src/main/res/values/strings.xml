@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CMPT276_ASN3</string>
+    <string name="app_name">Minesweeper Game</string>
     <string name="action_settings">Settings</string>
     <string name="action_help">Help</string>
     <!-- Strings used for fragments for navigation -->
@@ -10,6 +10,41 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="help_about_page">HELP//ABOUT PAGE</string>
-    <string name="welcome">WELCOME</string>
+    <string name="help_about_page"> 6. The Help screen displays some information about who wrote the application and some text
+explaining the game.
+ 6.1 The about-the-author text must include a hyperlink to the CMPT 276 home-page.
+ 6.2 The game information text must explain some of the basics about the game. You must
+use your own wording, not copying the text from the assignment document. Your text
+should reflect the theme of your game.
+ 6.3 The Help screen must provide the correct citation for any images, icons, or other
+resources (such as music) used in the game (for copyright purposes). Include a
+hyperlink if applicable.
+ 6.4 Pressing the Android back button on the Help screen returns to the Main Menu.</string>
+    <string name="welcome"> 1. The application\'s first screen must be a nice looking welcome screen.
+ 1.1 Program must start up showing the welcome screen.
+ 1.2 Welcome screen must include at least the following elements:
+- Name of application
+- Name of application\'s author(s)
+- One or more images. Could include a picture or cartoon of the authors, an icon for
+the application, or related images.
+ 1.3 Welcome screen may include two or more different animations (such as fade, spin, or
+move). It may have complicated animations such as rotating and moving a block of
+elements at once.
+ 1.4 Welcome screen must have a button (or similar interface) which allows the user to
+skip animations (if any) and go to the Main Menu.
+ 1.5 The Welcome screen may automatically advance to the Main Menu after all
+animations (if any) have finished, plus at least 4 extra seconds.</string>
+    <string name="settings">5. The Options screen must allow the user select board size and number of mines.
+ 5.1 User can select the board size, from options including at least:
+- 4 rows by 6 columns
+- 5 rows by 10 columns
+- 6 rows by 15 columns
+ 5.2 User can select number of mines, from options including at least:
+- 6 mines
+- 10 mines
+- 15 mines
+- 20 mines
+ 5.3 The game size, and number of mines are saved between application runs. 5.4 May allow user to reset number of times game has been played, and best scores for
+each game configuration (if supported).</string>
+    <string name="authorNames">By: AuthorName1 and AuthorName2</string>
 </resources>
