@@ -31,7 +31,7 @@ public class GameField {
 
             for (int j = 0; j < numCols; j++){
                 // Blank cell has no mine and no count
-                Cell c = new Cell(false, false, 0);
+                Cell c = new Cell(false, false, false, 0);
                 field.get(i).add(c);
             }
         }
@@ -57,7 +57,7 @@ public class GameField {
         }
     }
 
-    private void updateNumMines(){
+    public void updateNumMines(){
         for (int i = 0; i < numRows; i++){
             int rowCount = countNumMinesInRow(i);
             for (int j = 0; j < numCols; j++){
@@ -73,7 +73,7 @@ public class GameField {
         for (int i = 0; i < numCols; i++){
             Cell c = getCell(rowIndex, i);
             // Count all mines not already revealed
-            if (c.isContainsMine() && !c.isShown()){
+            if (c.isContainsMine() && c.isShown()){
                 count++;
             }
         }
@@ -86,7 +86,7 @@ public class GameField {
         for (int i = 0; i < numRows; i++){
             Cell c = getCell(i, colIndex);
             // Count all mines not already revealed
-            if (c.isContainsMine() && !c.isShown()){
+            if (c.isContainsMine() && c.isShown()){
                 count++;
             }
         }
