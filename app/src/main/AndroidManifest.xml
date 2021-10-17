@@ -17,7 +17,9 @@
         <activity
             android:name=".app.GamePlayActivity"
             android:exported="false"
-            android:label="Game" />
+            android:label="Game"
+            android:screenOrientation="landscape"
+            />
         <activity
             android:name=".app.SettingsActivity"
             android:exported="false"

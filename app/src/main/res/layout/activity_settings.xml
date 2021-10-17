@@ -6,6 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".app.SettingsActivity">
 
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/game_size"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <RadioButton
+            android:id="@+id/radio_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_1" />
+
+        <RadioButton
+            android:id="@+id/radio_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_2" />
+
+        <RadioButton
+            android:id="@+id/radio_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_3" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/number_of_mines"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <RadioButton
+            android:id="@+id/radio_4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_4" />
+
+        <RadioButton
+            android:id="@+id/radio_5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_5" />
+
+        <RadioButton
+            android:id="@+id/radio_6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_6" />
+
+        <RadioButton
+            android:id="@+id/radio_7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_7" />
+    </RadioGroup>
+
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -13,6 +88,8 @@
         android:text="@string/settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
