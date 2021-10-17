@@ -12,9 +12,11 @@
         android:fullBackupContent="@xml/backup_descriptor">
         <activity
             android:name=".app.GamePlayActivity"
+            android:label="Game"
             android:exported="false" />
         <activity
             android:name=".app.SettingsActivity"
+            android:label="Settings"
             android:exported="false" />
         <activity
             android:name=".app.MainActivity"
