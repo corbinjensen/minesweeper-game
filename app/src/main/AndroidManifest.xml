@@ -13,7 +13,9 @@
         <activity
             android:name=".app.HelpActivity"
             android:exported="false"
-            android:label="Help"/>
+            android:label="Help"
+            android:screenOrientation="landscape"
+            />
         <activity
             android:name=".app.GamePlayActivity"
             android:exported="false"
@@ -24,11 +26,14 @@
         <activity
             android:name=".app.OptionsActivity"
             android:exported="false"
-            android:label="Settings" />
+            android:label="Settings"
+            android:screenOrientation="landscape"
+            />
         <activity
             android:name=".app.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.CMPT276_ASN3.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,GamePlayActivity.class);
+                Intent intent2 = new Intent(MainActivity.this, GamePlayActivity.class);
                 startActivity(intent2);
             }
         });
