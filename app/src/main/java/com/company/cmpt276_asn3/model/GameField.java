@@ -9,20 +9,48 @@ public class GameField {
     private List<List<Cell>> field = new ArrayList<>();
     private int numRows;
     private int numCols;
+    // TODO: make observer pattern to watch numMines and numScans and update appropriate text view
     private int numMines;
+    private int numScans;
 
     public GameField(int height, int width, int numMines){
         this.numRows = height;
         this.numCols = width;
         this.numMines = numMines;
+        this.numScans = 0;
 
         populateListWithCells();
         setMines(this.numMines);
         updateNumMines();
     }
 
+    // Public interface methods
+
     public Cell getCell(int row, int col){
         return field.get(row).get(col);
+    }
+
+    // Note: May need change return type depending on use
+    public void scanCell(int row, int col){
+        Cell c = getCell(row, col);
+
+        // 3 possible cases
+        // Contains mine -> dont scan, remove mine and reveal cell
+        // No mine -> reveal and scan
+        // Cell already shown -> means used to have mine -> not scanned
+        if (c.isContainsMine()){
+            c.setShown(true);
+            c.setContainsMine(false); // remove mine after finding
+        }
+        else {
+            c.setScanned(true);
+            c.setShown(true);
+            incrementScans();
+        }
+    }
+
+    private void incrementScans(){
+        numScans++;
     }
 
     private void populateListWithCells(){
