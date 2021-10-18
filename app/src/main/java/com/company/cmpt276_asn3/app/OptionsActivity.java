@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.company.cmpt276_asn3.R;
 
-public class SettingsActivity extends AppCompatActivity {
+public class OptionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

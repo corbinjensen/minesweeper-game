@@ -22,7 +22,7 @@
             android:theme="@style/Theme.CMPT276_ASN3.NoActionBar"
             />
         <activity
-            android:name=".app.SettingsActivity"
+            android:name=".app.OptionsActivity"
             android:exported="false"
             android:label="Settings" />
         <activity
