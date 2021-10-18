@@ -12,9 +12,12 @@ import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
+import com.company.cmpt276_asn3.model.Options;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                 Intent intent2 = new Intent(MainActivity.this, GamePlayActivity.class);
                 startActivity(intent2);
+            }
+        });
+
+        // Testing options class, prints toast message
+        Options options = Options.getInstance();
+        Button button = (Button) findViewById(R.id.testOptions);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, options.getNumRows() + " x " +
+                                options.getNumCols() + " Mines: " +
+                                options.getNumMines(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 

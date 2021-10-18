@@ -8,7 +8,23 @@
 
 
     <RadioGroup
-        android:id="@+id/radioGroup2"
+        android:id="@+id/gameSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline3">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_size"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/numOfMines"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -21,65 +37,6 @@
             android:text="@string/number_of_mines"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <RadioButton
-            android:id="@+id/radio_4"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_4" />
-
-        <RadioButton
-            android:id="@+id/radio_5"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_5" />
-
-        <RadioButton
-            android:id="@+id/radio_6"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_6" />
-
-        <RadioButton
-            android:id="@+id/radio_7"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_7" />
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/game_size"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-        <RadioButton
-            android:id="@+id/radio_1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_1" />
-
-        <RadioButton
-            android:id="@+id/radio_2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_2" />
-
-        <RadioButton
-            android:id="@+id/radio_3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radio_3" />
-
     </RadioGroup>
 
     <androidx.constraintlayout.widget.Guideline
@@ -90,11 +47,18 @@
         app:layout_constraintGuide_begin="330dp" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="64dp" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="81dp" />
+        app:layout_constraintGuide_begin="49dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
