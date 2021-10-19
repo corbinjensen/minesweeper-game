@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -19,9 +18,12 @@ import com.company.cmpt276_asn3.model.Cell;
 import com.company.cmpt276_asn3.model.GameField;
 import com.company.cmpt276_asn3.model.Options;
 
+import java.util.Random;
+
 public class GamePlayActivity extends AppCompatActivity {
     private Options options;
     private GameField game;
+    private Random rand;
 
     Button[][] buttons;
 
@@ -31,9 +33,11 @@ public class GamePlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_play);
 
         // TODO: Handle options creation for 0 parameters
+        // TODO: Extract activity setup as a function and cleanup
         options = Options.getInstance();
         game = new GameField(options.getNumRows(), options.getNumCols(), options.getNumMines());
         buttons = new Button[options.getNumRows()][options.getNumCols()];
+        rand = new Random();
 
         populateButtons();
     }
@@ -66,7 +70,8 @@ public class GamePlayActivity extends AppCompatActivity {
 
                 // Make text fit on small buttons
                 button.setPadding(0,0, 0,0);
-                // Set default button image here
+                // Set default button image
+                button.setBackgroundResource(R.drawable.bush);
 
                 button.setOnClickListener(view -> cellButtonClicked(FINAL_ROW, FINAL_COL));
 
@@ -78,6 +83,7 @@ public class GamePlayActivity extends AppCompatActivity {
     }
 
     public void cellButtonClicked(int row, int col){
+        // NOTE: May not need to lock button size, all images same size
         lockButtonSizes();
         Button button = buttons[row][col];
 
@@ -85,15 +91,31 @@ public class GamePlayActivity extends AppCompatActivity {
             // draw image and make it fit within button
             int newWidth = button.getWidth();
             int newHeight = button.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cet);
+            Bitmap originalBitmap = getRandomImage();
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
 
-            // Update mine counter textView here
+            // TODO: Update mine counter textView here
         }
         updateButtonText();
-        // Update total scan counter textView here
+        // TODO: Update total scan counter textView here
+    }
+
+    private Bitmap getRandomImage() {
+        int randNum = rand.nextInt(3);
+        Bitmap originalBitmap;
+
+        if (randNum == 0){
+            originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.grey_cat_found);
+        }
+        else if (randNum == 1){
+            originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yellow_cat_found);
+        }
+        else{
+            originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.orange_cat_found);
+        }
+        return originalBitmap;
     }
 
     private void updateButtonText() {

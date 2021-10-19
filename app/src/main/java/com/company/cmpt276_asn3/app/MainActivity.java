@@ -2,19 +2,15 @@ package com.company.cmpt276_asn3.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.company.cmpt276_asn3.R;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.ui.AppBarConfiguration;
-
-import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
-
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.ui.AppBarConfiguration;
+
+import com.company.cmpt276_asn3.R;
+import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
