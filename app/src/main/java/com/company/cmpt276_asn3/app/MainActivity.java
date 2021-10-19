@@ -12,12 +12,9 @@ import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
-import com.company.cmpt276_asn3.model.Options;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        binding.buttonPlayGame.setOnClickListener(view -> {
-            Intent intent2 = new Intent(MainActivity.this, GamePlayActivity.class);
-            startActivity(intent2);
+        binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+                public void onClick(View view) {
+                Intent intent = GamePlayActivity.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
         });
-
-
     }
 
     @Override
@@ -57,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent= new Intent(this, OptionsActivity.class);
+            Intent intent = OptionsActivity.makeIntent(MainActivity.this);
             startActivity(intent);
             return true;
         }
 
         if(id == R.id.action_help) {
-            Intent intent = new Intent(this, HelpActivity.class);
+            Intent intent = HelpActivity.makeIntent(MainActivity.this);
             startActivity(intent);
             return true;
         }

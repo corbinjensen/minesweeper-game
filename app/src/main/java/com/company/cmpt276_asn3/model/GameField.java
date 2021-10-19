@@ -24,33 +24,54 @@ public class GameField {
         updateNumMines();
     }
 
-    // Public interface methods
-
     public Cell getCell(int row, int col){
         return field.get(row).get(col);
     }
 
-    // Note: May need change return type depending on use
-    public void scanCell(int row, int col){
+    // Returns true if cell contains a mine, false otherwise
+    public boolean scanCellForMine(int row, int col){
         Cell c = getCell(row, col);
 
-        // 3 possible cases
-        // Contains mine -> dont scan, remove mine and reveal cell
-        // No mine -> reveal and scan
-        // Cell already shown -> means used to have mine -> not scanned
+        // Case: Cell contains mine
         if (c.isContainsMine()){
-            c.setShown(true);
             c.setContainsMine(false); // remove mine after finding
+            // Decrement number for each cell in same row and col
+            decrementAllCells(row, col);
+            decrementMineCounter();
+            return true;
         }
-        else {
+        // Case: Cell hasn't been scanned yet
+        else if (!c.isScanned()){
             c.setScanned(true);
-            c.setShown(true);
-            incrementScans();
+            incrementScanCounter();
+            return false;
         }
+        // Cell already scanned, do nothing
+        return false;
     }
 
-    private void incrementScans(){
+    private void incrementScanCounter(){
         numScans++;
+    }
+
+    private void decrementMineCounter() {
+        numMines--;
+    }
+
+    // Decrements number from cells in same row and col as mine
+    private void decrementAllCells(int row, int col){
+        // Decrement from entire row
+        for (int i = 0; i < numCols; i++){
+            Cell c = getCell(row, i);
+            c.decrementNumMines();
+        }
+        // Decrement from entire column
+        for (int i = 0; i < numRows; i++){
+            if (i != row){
+                Cell c = getCell(i, col);
+                c.decrementNumMines();
+            }
+        }
     }
 
     private void populateListWithCells(){
@@ -59,7 +80,7 @@ public class GameField {
 
             for (int j = 0; j < numCols; j++){
                 // Blank cell has no mine and no count
-                Cell c = new Cell(false, false, false, 0);
+                Cell c = new Cell(false, false, 0);
                 field.get(i).add(c);
             }
         }
@@ -101,7 +122,7 @@ public class GameField {
         for (int i = 0; i < numCols; i++){
             Cell c = getCell(rowIndex, i);
             // Count all mines not already revealed
-            if (c.isContainsMine() && c.isShown()){
+            if (c.isContainsMine() && !c.isScanned()){
                 count++;
             }
         }
@@ -114,7 +135,7 @@ public class GameField {
         for (int i = 0; i < numRows; i++){
             Cell c = getCell(i, colIndex);
             // Count all mines not already revealed
-            if (c.isContainsMine() && c.isShown()){
+            if (c.isContainsMine() && !c.isScanned()){
                 count++;
             }
         }
