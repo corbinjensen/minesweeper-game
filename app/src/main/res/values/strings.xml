@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Minesweeper Game</string>
+    <string name="app_name">Cat Finder Game</string>
     <string name="action_settings">Settings</string>
     <string name="action_help">Help</string>
     <!-- Strings used for fragments for navigation -->
@@ -46,7 +46,7 @@ animations (if any) have finished, plus at least 4 extra seconds.</string>
 - 20 mines
  5.3 The game size, and number of mines are saved between application runs. 5.4 May allow user to reset number of times game has been played, and best scores for
 each game configuration (if supported).</string>
-    <string name="authorNames">By: AuthorName1 and AuthorName2</string>
+    <string name="authorNames">By: Johnny Mai and Corbin Jensen</string>
     <string name="play_game">PLAY GAME, FORCES LANDSCAPE MODE</string>
     <string name="game_size">Game Size</string>
     <string name="number_of_mines">Number of Mines</string>
