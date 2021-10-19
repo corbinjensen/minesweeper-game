@@ -22,19 +22,18 @@ public class OptionsActivity extends AppCompatActivity {
 
         options = Options.getInstance();
 
-        createRadioButtons();
+        createGameSizeButtons();
+        createNumMineButtons();
     }
 
-    private void createRadioButtons() {
+    private void createGameSizeButtons() {
         RadioGroup gameSizeGroup = (RadioGroup) findViewById(R.id.gameSize);
-        RadioGroup numMinesGroup = (RadioGroup) findViewById(R.id.numOfMines);
 
-        // numRows and numCols guaranteed to be same length
+        // Grabs button value resources
         int[] numRows = getResources().getIntArray(R.array.num_rows);
         int[] numCols = getResources().getIntArray(R.array.num_columns);
-        int[] numMines = getResources().getIntArray(R.array.num_mines);
 
-        // Grab dimensions from resource files and create radio buttons
+        // Creates buttons and sets on click listener
         for (int i = 0; i < numRows.length; i++){
             int numRow = numRows[i];
             int numCol = numCols[i];
@@ -42,7 +41,6 @@ public class OptionsActivity extends AppCompatActivity {
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.game_size_buttons, numRow, numCol));
 
-            // Set options on button click
             button.setOnClickListener(view -> {
                 options.setNumRows(numRow);
                 options.setNumCols(numCol);
@@ -50,12 +48,16 @@ public class OptionsActivity extends AppCompatActivity {
 
             gameSizeGroup.addView(button);
         }
+    }
 
-        // Set up number of mines radio group
+    private void createNumMineButtons() {
+        RadioGroup numMinesGroup = (RadioGroup) findViewById(R.id.numOfMines);
+        int[] numMines = getResources().getIntArray(R.array.num_mines);
+
+        // Create buttons and sets on click listener
         for (int numMine : numMines) {
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.num_mines_buttons, numMine));
-
             button.setOnClickListener(view -> options.setNumMines(numMine));
 
             numMinesGroup.addView(button);
