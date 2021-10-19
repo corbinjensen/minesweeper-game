@@ -33,26 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-                public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this, GamePlayActivity.class);
-                startActivity(intent2);
-            }
+        binding.buttonPlayGame.setOnClickListener(view -> {
+            Intent intent2 = new Intent(MainActivity.this, GamePlayActivity.class);
+            startActivity(intent2);
         });
 
-        // Testing options class, prints toast message
-        Options options = Options.getInstance();
-        Button button = (Button) findViewById(R.id.testOptions);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, options.getNumRows() + " x " +
-                                options.getNumCols() + " Mines: " +
-                                options.getNumMines(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
