@@ -67,10 +67,8 @@ public class GameField {
         }
         // Decrement from entire column
         for (int i = 0; i < numRows; i++){
-            if (i != row){
-                Cell c = getCell(i, col);
-                c.decrementNumMines();
-            }
+            Cell c = getCell(i, col);
+            c.decrementNumMines();
         }
     }
 
