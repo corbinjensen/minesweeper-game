@@ -67,6 +67,6 @@ public class OptionsActivity extends AppCompatActivity {
     }
 
     public static Intent makeIntent(Context context){
-        return new Intent(context, GamePlayActivity.class);
+        return new Intent(context, OptionsActivity.class);
     }
 }
