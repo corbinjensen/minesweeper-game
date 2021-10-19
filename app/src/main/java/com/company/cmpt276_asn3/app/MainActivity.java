@@ -4,21 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.company.cmpt276_asn3.R;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
+import com.company.cmpt276_asn3.model.Options;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,8 +36,21 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,GamePlayActivity.class);
+                Intent intent2 = new Intent(MainActivity.this, GamePlayActivity.class);
                 startActivity(intent2);
+            }
+        });
+
+        // Testing options class, prints toast message
+        Options options = Options.getInstance();
+        Button button = (Button) findViewById(R.id.testOptions);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, options.getNumRows() + " x " +
+                                options.getNumCols() + " Mines: " +
+                                options.getNumMines(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -61,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent= new Intent(this, SettingsActivity.class);
+            Intent intent= new Intent(this, OptionsActivity.class);
             startActivity(intent);
             return true;
         }
