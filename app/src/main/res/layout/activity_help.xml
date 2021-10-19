@@ -7,6 +7,23 @@
     tools:context=".app.HelpActivity">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/authorNames"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,4 +32,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Created for Assignment #3 for the SFU course CMPT 276: https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
