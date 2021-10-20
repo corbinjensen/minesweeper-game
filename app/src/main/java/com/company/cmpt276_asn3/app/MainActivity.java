@@ -18,16 +18,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
 
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static Intent makeIntent(Context context) {
-
         return new Intent(context, MainActivity.class);
-
     }
 
 }
