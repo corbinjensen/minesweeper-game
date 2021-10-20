@@ -40,7 +40,7 @@ public class OptionsActivity extends AppCompatActivity {
     }
 
     private void createGameSizeRadioButtons() {
-        RadioGroup gameSizeGroup = (RadioGroup) findViewById(R.id.gameSize);
+        RadioGroup group = (RadioGroup) findViewById(R.id.gameSize);
 
         // Grabs button value resources
         int[] numRows = getResources().getIntArray(R.array.num_rows);
@@ -62,16 +62,22 @@ public class OptionsActivity extends AppCompatActivity {
                 }
             });
 
-            gameSizeGroup.addView(button);
+            group.addView(button);
+
+            // Remember past user selections
+            if (options.getNumRows() == numRow && options.getNumCols() == numCol){
+                group.check(group.getChildAt(i).getId());
+            }
         }
     }
 
     private void createNumMineRadioButtons() {
-        RadioGroup numMinesGroup = (RadioGroup) findViewById(R.id.numOfMines);
+        RadioGroup group = (RadioGroup) findViewById(R.id.numOfMines);
         int[] numMines = getResources().getIntArray(R.array.num_mines);
 
         // Create buttons and sets on click listener
-        for (int numMine : numMines) {
+        for (int i = 0; i < numMines.length; i++) {
+            int numMine = numMines[i];
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.num_mines_buttons, numMine));
             button.setOnClickListener(view -> {
@@ -81,7 +87,11 @@ public class OptionsActivity extends AppCompatActivity {
                 }
             });
 
-            numMinesGroup.addView(button);
+            group.addView(button);
+            // Remember past user selections
+            if (options.getNumMines() == numMine){
+                group.check(group.getChildAt(i).getId());
+            }
         }
     }
 
