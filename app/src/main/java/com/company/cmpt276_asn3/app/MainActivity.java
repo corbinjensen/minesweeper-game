@@ -1,5 +1,6 @@
 package com.company.cmpt276_asn3.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+
 
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.buttonOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = OptionsActivity.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
+        binding.buttonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = HelpActivity.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private Intent getNewGameIntent(){
@@ -78,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static Intent makeIntent(Context context) {
+
+        return new Intent(context, MainActivity.class);
+
     }
 
 }
