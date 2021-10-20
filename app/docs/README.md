@@ -3,4 +3,5 @@
 
 Optional Features Implemented:
 - Sound effect during gameplay.
+- Custom Cat Theme
 - Background images.
