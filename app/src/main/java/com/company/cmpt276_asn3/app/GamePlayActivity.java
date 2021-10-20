@@ -1,8 +1,10 @@
 package com.company.cmpt276_asn3.app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -168,7 +170,18 @@ public class GamePlayActivity extends AppCompatActivity {
     private void checkForWin() {
         if (game.getMineCounter() == 0){
             // Call congratulation screen here!
-            Toast.makeText(GamePlayActivity.this, "GAME WIN", Toast.LENGTH_SHORT ).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(true);
+            builder.setPositiveButton("YAY", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int i) {
+                    dialog.dismiss();
+                    Intent intent = MainActivity.makeIntent(GamePlayActivity.this);
+                    startActivity(intent);
+                }
+            });
+            builder.setMessage("Congrats, You Found All The Cats!!");
+            builder.show();
         }
     }
 
