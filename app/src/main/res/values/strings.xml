@@ -10,16 +10,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="help_about_page"> 6. The Help screen displays some information about who wrote the application and some text
-explaining the game.
- 6.1 The about-the-author text must include a hyperlink to the CMPT 276 home-page.
- 6.2 The game information text must explain some of the basics about the game. You must
-use your own wording, not copying the text from the assignment document. Your text
-should reflect the theme of your game.
- 6.3 The Help screen must provide the correct citation for any images, icons, or other
-resources (such as music) used in the game (for copyright purposes). Include a
-hyperlink if applicable.
- 6.4 Pressing the Android back button on the Help screen returns to the Main Menu.</string>
+    <string name="help_about_page_1"> 1. You can start a game with the default settings by clicking the “Start Game” button from the home screen.</string>
+    <string name="help_about_page_2">2. To adjust the level of challenge check out the “Settings” page, from the home page click on the top bar. Here you can adjust the size of the game area, as well as how many cats are hidden.</string>
+    <string name="help_about_page_3">3. Game Play instructions - click on the bushes to score points, but beware of the hidden cats !</string>
     <string name="welcome"> 1. The application\'s first screen must be a nice looking welcome screen.
  1.1 Program must start up showing the welcome screen.
  1.2 Welcome screen must include at least the following elements:

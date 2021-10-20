@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
 
 import com.company.cmpt276_asn3.R;
 
@@ -14,6 +16,13 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+        courseHyperlink();
+    }
+
+    private void courseHyperlink() {
+        TextView courseLink = findViewById(R.id.textView8);
+        courseLink.setMovementMethod(LinkMovementMethod.getInstance());
+
     }
 
     public static Intent makeIntent(Context context){
