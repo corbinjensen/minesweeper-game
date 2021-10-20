@@ -15,6 +15,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -98,6 +99,8 @@ public class GamePlayActivity extends AppCompatActivity {
         // NOTE: May not need to lock button size, all images same size
         lockButtonSizes();
         Button button = buttons[row][col];
+        final MediaPlayer grassSoundMP = MediaPlayer.create(this,R.raw.grass_sound);
+        grassSoundMP.start();
 
         if (game.scanCellForMine(row, col)){
             // draw image and make it fit within button
