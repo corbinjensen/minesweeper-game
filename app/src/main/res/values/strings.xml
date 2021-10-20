@@ -49,9 +49,9 @@ each game configuration (if supported).</string>
     <string name="authorNames">By: Johnny Mai and Corbin Jensen</string>
     <string name="play_game">PLAY GAME, FORCES LANDSCAPE MODE</string>
     <string name="game_size">Game Size</string>
-    <string name="number_of_mines">Number of Mines</string>
+    <string name="number_of_mines">Number of Cats</string>
     <string name="game_size_buttons">"%1$d Rows x %2$d Columns"</string>
-    <string name="num_mines_buttons">"%1$d Mines"</string>
+    <string name="num_mines_buttons">"%1$d Cats"</string>
     <string name="course_website_276">
         <a href="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276">
             https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276
