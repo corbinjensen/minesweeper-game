@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.model.Cell;
@@ -40,6 +41,8 @@ public class GamePlayActivity extends AppCompatActivity {
         rand = new Random();
 
         populateButtons();
+        updateNumScanCounter();
+        updateNumMinesCounter();
     }
 
     private void populateButtons() {
@@ -96,10 +99,10 @@ public class GamePlayActivity extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
 
-            // TODO: Update mine counter textView here
+            updateNumMinesCounter();
         }
         updateButtonText();
-        // TODO: Update total scan counter textView here
+        updateNumScanCounter();
     }
 
     private Bitmap getRandomImage() {
@@ -145,6 +148,16 @@ public class GamePlayActivity extends AppCompatActivity {
                 button.setMaxHeight(height);
             }
         }
+    }
+
+    private void updateNumMinesCounter() {
+        TextView textView = (TextView) findViewById(R.id.catCounterText);
+        textView.setText(getString(R.string.mine_counter, game.getMineCounter()));
+    }
+
+    private void updateNumScanCounter() {
+        TextView textView = (TextView) findViewById(R.id.scanCounterText);
+        textView.setText(getString(R.string.scan_counter, game.getScanCounter()));
     }
 
     public static Intent makeIntent(Context context){
