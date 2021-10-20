@@ -132,7 +132,8 @@ public class GamePlayActivity extends AppCompatActivity {
                 Cell cell = game.getCell(row, col);
 
                 if (cell.isScanned()){
-                    button.setText("" + cell.getNumMines());
+                    String text = String.valueOf(cell.getNumMines());
+                    button.setText(text);
                 }
             }
         }
