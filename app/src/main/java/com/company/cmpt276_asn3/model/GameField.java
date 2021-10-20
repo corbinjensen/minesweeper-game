@@ -1,10 +1,14 @@
+/*
+    GameField.java - Holds 2D array of Cell obj in row major order representing the
+    playable game field
+ */
+
 package com.company.cmpt276_asn3.model;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// Holds 2D array of Cell obj in row major order representing the playable game field
 public class GameField {
     private List<List<Cell>> field = new ArrayList<>();
     private int numRows;

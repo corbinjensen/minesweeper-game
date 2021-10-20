@@ -1,3 +1,6 @@
+/*
+    HelpActivity.java - Represents an About Page with citations, and instructions for the user.
+ */
 package com.company.cmpt276_asn3.app;
 
 import androidx.appcompat.app.AppCompatActivity;

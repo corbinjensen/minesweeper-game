@@ -1,3 +1,7 @@
+/*
+    OptionsActivity.java - Represents where the user can adjust settings to change the difficulty of
+    the game.
+ */
 package com.company.cmpt276_asn3.app;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -5,11 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.model.Options;
