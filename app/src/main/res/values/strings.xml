@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Cat Finder Game</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Catch The Cat!</string>
+    <string name="action_settings">Options</string>
     <string name="action_help">Help</string>
-    <string name="help_about_page_1"> 1. You can start a game with the default settings by clicking the “Start Game” button from the home screen.</string>
-    <string name="help_about_page_2" tools:ignore="ExtraTranslation">2. To adjust the level of challenge check out the “Settings” page, from the home page click on the top bar. Here you can adjust the size of the game area, as well as how many cats are hidden.</string>
-    <string name="help_about_page_3" tools:ignore="ExtraTranslation">3. Game Play instructions - click on the bushes to score points, but beware of the hidden cats !</string>
+    <string name="help_about_page_1"> 1. Your cats have escaped! Start a game by clicking the “Start Game” button from the home screen and bring all your cats back from hiding.</string>
+    <string name="help_about_page_2" tools:ignore="ExtraTranslation">2. To adjust the level of difficulty check out the “Options” page. Here you can adjust the size of the game area, as well as how many cats are hidden.</string>
+    <string name="help_about_page_3" tools:ignore="ExtraTranslation">3. Game Play instructions - tap on a bush to search and use the numbers as clues to find all the cats as quickly as possible. </string>
     <string name="authorNames" tools:ignore="ExtraTranslation">By: Johnny Mai and Corbin Jensen</string>
     <string name="play_game" tools:ignore="ExtraTranslation">Play Game</string>
     <string name="game_size">Game Size</string>
@@ -17,7 +17,7 @@
         </a>
     </string>
     <string name="created_for_assignment_3_for_the_sfu_course_cmpt_276">Created for Assignment #3 for the SFU course CMPT 276</string>
-    <string name="instructions_to_play_the_game">Instructions to Play the Game</string>
+    <string name="instructions_to_play_the_game">Instructions:</string>
     <string name="original_cat_artwork_created_by_johnny_mai">Original cat artwork created by Johnny Mai.</string>
     <string name="mine_counter">"Found %1$d of %2$d Cats."</string>
     <string name="scan_counter">"# of Scans Used: %1$d"</string>
