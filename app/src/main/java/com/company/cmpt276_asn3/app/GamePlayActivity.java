@@ -14,8 +14,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -174,7 +176,12 @@ public class GamePlayActivity extends AppCompatActivity {
             // Call congratulation screen here!
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setCancelable(false);
-            builder.setPositiveButton("YAY", new DialogInterface.OnClickListener() {
+
+            ImageView imageView = new ImageView(GamePlayActivity.this);
+            imageView.setImageResource(R.drawable.grey_cat);
+            builder.setView(imageView);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int i) {
                     dialog.dismiss();
