@@ -1,3 +1,7 @@
+/*
+    WelcomeActivity.java - Represents a welcome screen when the app starts
+ */
+
 package com.company.cmpt276_asn3.app;
 import com.company.cmpt276_asn3.R;
 
