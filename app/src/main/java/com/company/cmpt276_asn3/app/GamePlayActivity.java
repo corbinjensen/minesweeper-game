@@ -1,3 +1,7 @@
+/*
+    GamePlayActivity.java - Represents the screen where the user can play the game.
+ */
+
 package com.company.cmpt276_asn3.app;
 
 import androidx.appcompat.app.AlertDialog;

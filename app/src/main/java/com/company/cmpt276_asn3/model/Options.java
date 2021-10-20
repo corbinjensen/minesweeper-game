@@ -1,6 +1,9 @@
+/*
+    Options.java - Singleton class to store user selected options.
+ */
+
 package com.company.cmpt276_asn3.model;
 
-// Singleton class to store user selected options
 public class Options {
     private int numRows;
     private int numCols;

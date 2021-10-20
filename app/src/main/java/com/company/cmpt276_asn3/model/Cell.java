@@ -1,6 +1,8 @@
+/*
+    Cell.java - Represents an Object that stores information about each individual cell of game field
+ */
 package com.company.cmpt276_asn3.model;
 
-// Object that stores information about each individual cell of game field
 public class Cell {
     private boolean containsMine;
     private boolean isScanned;
