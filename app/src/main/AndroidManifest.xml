@@ -13,9 +13,8 @@
         <activity
             android:name=".app.WelcomeActivity"
             android:exported="true"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.CMPT276_ASN3.NoActionBar">
-            <intent-filter>
+            android:screenOrientation="landscape">
+        <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
@@ -41,7 +40,8 @@
             android:name=".app.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.CMPT276_ASN3.NoActionBar">
         </activity>
     </application>
 
