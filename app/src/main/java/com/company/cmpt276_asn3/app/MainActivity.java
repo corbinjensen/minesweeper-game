@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = OptionsActivity.makeIntent(MainActivity.this);
+                Intent intent = OptionsActivity.makeIntent(MainActivity.this, false);
                 startActivity(intent);
             }
         });
@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private Intent getNewGameIntent(){
