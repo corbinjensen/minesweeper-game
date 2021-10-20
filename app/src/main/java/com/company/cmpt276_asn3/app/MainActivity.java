@@ -1,7 +1,3 @@
-/*
-    MainActivity.java - Represents the Home Screen of the App with the Main Menu
- */
-
 package com.company.cmpt276_asn3.app;
 
 import android.content.Context;
@@ -14,11 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
 import com.company.cmpt276_asn3.model.Options;
 
+// MainActivity.java - Represents the Home Screen of the App with the Main Menu
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
 
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static Intent makeIntent(Context context) {
-
         return new Intent(context, MainActivity.class);
-
     }
-
 }
