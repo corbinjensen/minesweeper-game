@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.model.Cell;
@@ -174,12 +173,13 @@ public class GamePlayActivity extends AppCompatActivity {
         if (game.getMineCounter() == 0){
             // Call congratulation screen here!
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setCancelable(true);
+            builder.setCancelable(false);
             builder.setPositiveButton("YAY", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int i) {
                     dialog.dismiss();
                     Intent intent = MainActivity.makeIntent(GamePlayActivity.this);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
             });
