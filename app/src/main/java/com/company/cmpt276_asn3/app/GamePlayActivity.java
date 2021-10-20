@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.model.Cell;
@@ -34,15 +35,17 @@ public class GamePlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_play);
 
         // TODO: Handle options creation for 0 parameters
-        // TODO: Extract activity setup as a function and cleanup
+        setUpNewGame();
+        populateButtons();
+        updateNumScanCounter();
+        updateNumMinesCounter();
+    }
+
+    private void setUpNewGame(){
         options = Options.getInstance();
         game = new GameField(options.getNumRows(), options.getNumCols(), options.getNumMines());
         buttons = new Button[options.getNumRows()][options.getNumCols()];
         rand = new Random();
-
-        populateButtons();
-        updateNumScanCounter();
-        updateNumMinesCounter();
     }
 
     private void populateButtons() {
@@ -100,6 +103,7 @@ public class GamePlayActivity extends AppCompatActivity {
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
 
             updateNumMinesCounter();
+            checkForWin();
         }
         updateButtonText();
         updateNumScanCounter();
@@ -152,12 +156,19 @@ public class GamePlayActivity extends AppCompatActivity {
 
     private void updateNumMinesCounter() {
         TextView textView = (TextView) findViewById(R.id.catCounterText);
-        textView.setText(getString(R.string.mine_counter, game.getMineCounter()));
+        textView.setText(getString(R.string.mine_counter, game.getMineCounter(), options.getNumMines()));
     }
 
     private void updateNumScanCounter() {
         TextView textView = (TextView) findViewById(R.id.scanCounterText);
         textView.setText(getString(R.string.scan_counter, game.getScanCounter()));
+    }
+
+    private void checkForWin() {
+        if (game.getMineCounter() == 0){
+            // Call congratulation screen here!
+            Toast.makeText(GamePlayActivity.this, "GAME WIN", Toast.LENGTH_SHORT ).show();
+        }
     }
 
     public static Intent makeIntent(Context context){
