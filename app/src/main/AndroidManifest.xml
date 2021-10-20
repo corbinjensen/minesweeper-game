@@ -27,7 +27,7 @@
         <activity
             android:name=".app.OptionsActivity"
             android:exported="false"
-            android:label="Settings"
+            android:label="Options"
             android:screenOrientation="landscape"
             />
         <activity

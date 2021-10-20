@@ -12,10 +12,13 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
+import com.company.cmpt276_asn3.model.Options;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
-                Intent intent = GamePlayActivity.makeIntent(MainActivity.this);
+                Intent intent = getNewGameIntent();
                 startActivity(intent);
             }
         });
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = OptionsActivity.makeIntent(MainActivity.this);
+                Intent intent = OptionsActivity.makeIntent(MainActivity.this, false);
                 startActivity(intent);
             }
         });
@@ -47,8 +52,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-    } // end onCreate()
+    private Intent getNewGameIntent(){
+        Options options = Options.getInstance();
+        Intent intent;
+
+        // Force user to options activity if any field is not instantiated
+        if (options.getNumMines() == 0 || options.getNumRows() == 0 || options.getNumCols() == 0){
+            intent = OptionsActivity.makeIntent(MainActivity.this, true);
+        }
+        else{
+            intent = GamePlayActivity.makeIntent(MainActivity.this);
+        }
+        return intent;
+    }
 
     public static Intent makeIntent(Context context) {
 

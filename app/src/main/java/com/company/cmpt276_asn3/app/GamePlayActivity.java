@@ -40,7 +40,6 @@ public class GamePlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_play);
 
-        // TODO: Handle options creation for 0 parameters
         setUpNewGame();
         populateButtons();
         updateNumScanCounter();
