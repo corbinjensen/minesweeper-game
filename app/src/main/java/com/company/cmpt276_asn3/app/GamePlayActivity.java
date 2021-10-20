@@ -166,7 +166,10 @@ public class GamePlayActivity extends AppCompatActivity {
 
     private void updateNumMinesCounter() {
         TextView textView = (TextView) findViewById(R.id.catCounterText);
-        textView.setText(getString(R.string.mine_counter, game.getMineCounter(), options.getNumMines()));
+        int totalMines = options.getNumMines();
+        int minesLeft = totalMines - game.getMineCounter();
+
+        textView.setText(getString(R.string.mine_counter,minesLeft, totalMines));
     }
 
     private void updateNumScanCounter() {
