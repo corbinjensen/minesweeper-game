@@ -18,11 +18,11 @@
     </string>
     <string name="created_for_assignment_3_for_the_sfu_course_cmpt_276">Created for Assignment #3 for the SFU course CMPT 276</string>
     <string name="instructions_to_play_the_game">Instructions:</string>
-    <string name="original_cat_artwork_created_by_johnny_mai">Original cat artwork created by Johnny Mai using sketch.io/sketchpad/</string>
+    <string name="original_cat_artwork_created_by_johnny_mai">Original cat and bush artwork created by Johnny Mai using sketch.io/sketchpad/</string>
     <string name="mine_counter">"Found %1$d of %2$d Cats."</string>
     <string name="scan_counter">"# of Scans Used: %1$d"</string>
     <string name="continue_button_string">Play Game</string>
-    <string name="subtle_background_image_photo_by_nordwood_themes_from_unsplash">Subtle Background Image Photo by NordWood Themes from Unsplash</string>
+    <string name="subtle_background_image_photo_by_nordwood_themes_from_unsplash">Subtle Background Image Photo by NordWood Themes from Unsplash.com</string>
     <string name="main_menu">Main Menu</string>
     <string name="catch_the_cat">Catch The Cat</string>
 </resources>

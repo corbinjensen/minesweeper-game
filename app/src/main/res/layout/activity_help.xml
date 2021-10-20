@@ -112,17 +112,25 @@
         android:layout_height="wrap_content"
         android:text="@string/subtle_background_image_photo_by_nordwood_themes_from_unsplash"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sound Effect of Grass by: by Leafs67 from freesound.org"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/instructions_to_play_the_game"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
