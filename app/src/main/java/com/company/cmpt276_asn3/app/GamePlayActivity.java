@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.model.Cell;
@@ -33,13 +35,17 @@ public class GamePlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_play);
 
         // TODO: Handle options creation for 0 parameters
-        // TODO: Extract activity setup as a function and cleanup
+        setUpNewGame();
+        populateButtons();
+        updateNumScanCounter();
+        updateNumMinesCounter();
+    }
+
+    private void setUpNewGame(){
         options = Options.getInstance();
         game = new GameField(options.getNumRows(), options.getNumCols(), options.getNumMines());
         buttons = new Button[options.getNumRows()][options.getNumCols()];
         rand = new Random();
-
-        populateButtons();
     }
 
     private void populateButtons() {
@@ -96,10 +102,11 @@ public class GamePlayActivity extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
 
-            // TODO: Update mine counter textView here
+            updateNumMinesCounter();
+            checkForWin();
         }
         updateButtonText();
-        // TODO: Update total scan counter textView here
+        updateNumScanCounter();
     }
 
     private Bitmap getRandomImage() {
@@ -125,7 +132,8 @@ public class GamePlayActivity extends AppCompatActivity {
                 Cell cell = game.getCell(row, col);
 
                 if (cell.isScanned()){
-                    button.setText("" + cell.getNumMines());
+                    String text = String.valueOf(cell.getNumMines());
+                    button.setText(text);
                 }
             }
         }
@@ -144,6 +152,23 @@ public class GamePlayActivity extends AppCompatActivity {
                 button.setMinHeight(height);
                 button.setMaxHeight(height);
             }
+        }
+    }
+
+    private void updateNumMinesCounter() {
+        TextView textView = (TextView) findViewById(R.id.catCounterText);
+        textView.setText(getString(R.string.mine_counter, game.getMineCounter(), options.getNumMines()));
+    }
+
+    private void updateNumScanCounter() {
+        TextView textView = (TextView) findViewById(R.id.scanCounterText);
+        textView.setText(getString(R.string.scan_counter, game.getScanCounter()));
+    }
+
+    private void checkForWin() {
+        if (game.getMineCounter() == 0){
+            // Call congratulation screen here!
+            Toast.makeText(GamePlayActivity.this, "GAME WIN", Toast.LENGTH_SHORT ).show();
         }
     }
 

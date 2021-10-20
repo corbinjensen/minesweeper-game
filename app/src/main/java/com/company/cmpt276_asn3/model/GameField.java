@@ -9,7 +9,6 @@ public class GameField {
     private List<List<Cell>> field = new ArrayList<>();
     private int numRows;
     private int numCols;
-    // TODO: make observer pattern to watch numMines and numScans and update appropriate text view
     private int numMines;
     private int numScans;
 
@@ -48,6 +47,14 @@ public class GameField {
         }
         // Cell already scanned, do nothing
         return false;
+    }
+
+    public int getScanCounter(){
+        return numScans;
+    }
+
+    public int getMineCounter(){
+        return numMines;
     }
 
     private void incrementScanCounter(){
