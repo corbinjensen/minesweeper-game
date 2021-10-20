@@ -40,9 +40,9 @@
         <activity
             android:name=".app.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="@string/menu_main"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.CMPT276_ASN3.NoActionBar">
+            >
         </activity>
     </application>
 
