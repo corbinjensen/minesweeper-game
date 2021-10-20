@@ -9,26 +9,37 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.model.Options;
 
 public class OptionsActivity extends AppCompatActivity {
+    public static final String EXTRA_BOOLEAN = "com.company.cmpt276_asn3.app.OptionsActivity - setup boolean";
     private Options options;
+    private Boolean isFirstSetup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
+        extractDataFromIntent();
 
         options = Options.getInstance();
+        if (isFirstSetup){
+            this.setTitle("Set Up Game Options");
+        }
 
-        createGameSizeButtons();
-        createNumMineButtons();
+        createGameSizeRadioButtons();
+        createNumMineRadioButtons();
+        setupContinueButton();
     }
 
-    private void createGameSizeButtons() {
+    private void extractDataFromIntent() {
+        Intent intent = getIntent();
+        isFirstSetup = intent.getBooleanExtra(EXTRA_BOOLEAN, false);
+    }
+
+    private void createGameSizeRadioButtons() {
         RadioGroup gameSizeGroup = (RadioGroup) findViewById(R.id.gameSize);
 
         // Grabs button value resources
@@ -46,13 +57,16 @@ public class OptionsActivity extends AppCompatActivity {
             button.setOnClickListener(view -> {
                 options.setNumRows(numRow);
                 options.setNumCols(numCol);
+                if (isFirstSetup){
+                    checkRadioGroupValid();
+                }
             });
 
             gameSizeGroup.addView(button);
         }
     }
 
-    private void createNumMineButtons() {
+    private void createNumMineRadioButtons() {
         RadioGroup numMinesGroup = (RadioGroup) findViewById(R.id.numOfMines);
         int[] numMines = getResources().getIntArray(R.array.num_mines);
 
@@ -60,13 +74,43 @@ public class OptionsActivity extends AppCompatActivity {
         for (int numMine : numMines) {
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.num_mines_buttons, numMine));
-            button.setOnClickListener(view -> options.setNumMines(numMine));
+            button.setOnClickListener(view -> {
+                options.setNumMines(numMine);
+                if (isFirstSetup){
+                    checkRadioGroupValid();
+                }
+            });
 
             numMinesGroup.addView(button);
         }
     }
 
-    public static Intent makeIntent(Context context){
-        return new Intent(context, OptionsActivity.class);
+    private void setupContinueButton() {
+        Button button = (Button) findViewById(R.id.continueButton);
+        button.setVisibility(View.INVISIBLE);
+
+        button.setOnClickListener(view -> {
+            Intent intent = GamePlayActivity.makeIntent(OptionsActivity.this);
+            startActivity(intent);
+            finish();
+        });
+    }
+
+    private void checkRadioGroupValid(){
+        RadioGroup group1 = (RadioGroup) findViewById(R.id.numOfMines);
+        RadioGroup group2 = (RadioGroup) findViewById(R.id.gameSize);
+        Button button = (Button) findViewById(R.id.continueButton);
+
+        // Set visibility of continue button if both radio groups have items selected
+        if (group1.getCheckedRadioButtonId() != -1 && group2.getCheckedRadioButtonId() != -1){
+            button.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public static Intent makeIntent(Context context, boolean isFirstSetup){
+        Intent intent = new Intent(context, OptionsActivity.class);
+        intent.putExtra(EXTRA_BOOLEAN, isFirstSetup);
+
+        return intent;
     }
 }

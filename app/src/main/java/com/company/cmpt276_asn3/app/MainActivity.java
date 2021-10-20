@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.company.cmpt276_asn3.R;
 import com.company.cmpt276_asn3.databinding.ActivityMainBinding;
+import com.company.cmpt276_asn3.model.Options;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +30,24 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
-                Intent intent = GamePlayActivity.makeIntent(MainActivity.this);
+                Intent intent = getNewGameIntent();
                 startActivity(intent);
             }
         });
+    }
+
+    private Intent getNewGameIntent(){
+        Options options = Options.getInstance();
+        Intent intent;
+
+        // Force user to options activity if any field is not instantiated
+        if (options.getNumMines() == 0 || options.getNumRows() == 0 || options.getNumCols() == 0){
+            intent = OptionsActivity.makeIntent(MainActivity.this, true);
+        }
+        else{
+            intent = GamePlayActivity.makeIntent(MainActivity.this);
+        }
+        return intent;
     }
 
     @Override
@@ -51,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = OptionsActivity.makeIntent(MainActivity.this);
+            Intent intent = OptionsActivity.makeIntent(MainActivity.this, false);
             startActivity(intent);
             return true;
         }
