@@ -11,6 +11,7 @@
         android:id="@+id/welcomeContinueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#D32F2F"
         android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline12" />
