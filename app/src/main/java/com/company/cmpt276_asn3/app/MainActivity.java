@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+
 
         binding.buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.buttonOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = OptionsActivity.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
+        binding.buttonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = HelpActivity.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
