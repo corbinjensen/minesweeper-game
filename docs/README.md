@@ -6,6 +6,11 @@ Optional Features Implemented:
 - Custom Cat Theme
 - Background images.
 
-
+![](./screenshots/CF1.png)
+![](./screenshots/CF2.png)
+![](./screenshots/CF3.png)
+![](./screenshots/CF4.png)
+![](./screenshots/CF5.png)
+![](./screenshots/CF6.png)
 
 
